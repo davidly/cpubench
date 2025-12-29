@@ -11,8 +11,7 @@ Benchmarks:
 * e: calculates the value of e to 192 digits. Measures integer division, modulo, and multiplication performance along with array and loop performance
 * ttt: proves one can't win at tic-tac-toe if the opponent is competent, from 1983's War Games. Measures function call, array, loop, and conditional performance
 
-<img width="1673" height="438" alt="table" src="https://github.com/user-attachments/assets/8b8b3679-ba2e-4890-bae3-baceae5b7b1e" />
-
+<img width="1864" height="541" alt="bench" src="https://github.com/user-attachments/assets/df081ebe-ab29-4d57-87f1-1d0191201808" />
 
 Notes:
 
@@ -20,13 +19,15 @@ Notes:
 * assembly always wins. I made optimizations a good compiler could make, but none fully implement yet.
 * I'm not an expert at writing assembly for any of these architectures. I am certain others could make dramatic improvements. That said, these implementations are of roughly equal quality.
 * I used the C compiler that generates on average the fastest code for each platform. Other compilers are faster for some code patterns. The C code varies somewhat between platforms to improve performance.
-* I measured instruction counts on emulators I have written for each CPU aside from AMD64, which was measured in gdb. Emulators are available in sister repos.
+* I measured instruction counts on emulators I have written for each CPU. Emulators are available in sister repos.
 * These are tiny benchmarks that fit in the smallest/fastest caches each CPU might have. Even so, Cycles per Instruction is a fraught metric that vendors spout but have little real-world meaning
 * The cpi metrics shown here are for workloads that are similar to these benchmarks
 * year available refers to when a computer containing the CPU was commercially available. CPUs themselves were available 1-3 years before these dates
 * sparc v7 (the first sparc chip used in Sun Solaris workstations) had no integer multiply or divide instructions, so E runs slowly
 * sparc v7 TTT and SIEVE share assembly implementations with v8
 * the 8080 was notoriously difficult for C compilers to target; local variables require lots of instructions to work
+* gcc on i386 for sieve and e produces some truly remarkably good code
+* i386 assembly versions should be no faster than amd64 versions, but there is a sense that no conventions be followed for i386 in the name of performance
 * arm64 does especially well on E due to its multiply & add and multiply & subtract instructions
 * older cpus required far more cycles per instruction and their clock rates were much lower
 * SIEVE is largely the same for all CPUs for i8086 and later, which is pretty amazing
