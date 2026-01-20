@@ -53,13 +53,21 @@ char acbuf[ 20 ];
 void showu( val ) unsigned int val;
 {
     int digits, x;
+    int d;
     digits = 0;
 
     while ( val )
     {
-        x = val % 10;
+#if 1
+        d = val / 10;
+        x = val - ( d * 10 );
+        acbuf[ digits++ ] = x + '0';
+        val = d;
+#else
+        val % 10;
         acbuf[ digits++ ] = x + '0';
         val /= 10;
+#endif
     }
 
     for ( x = digits - 1; x >= 0; x-- )
@@ -79,11 +87,12 @@ void showi( val ) int val;
 
 #define DIGITS_TO_FIND 200 /*9009;*/
 
-int a[ DIGITS_TO_FIND ];
+char a[ DIGITS_TO_FIND ];
 
 int main()
 {
     int N, x, n;
+    int d;
 
     N = DIGITS_TO_FIND;
     x = 0;
@@ -97,8 +106,14 @@ int main()
         n = N--;
         while (--n)
         {
+#if 1
+            d = x / n;
+            a[n] = x - ( d * n );
+            x = 10 * a[n-1] + d;
+#else
             a[n] = x % n;
             x = 10 * a[n-1] + x/n;
+#endif
         }
         showu( x );
     }
