@@ -35,7 +35,7 @@ prbyte       .eq     $ffdc          ; sends the value in a to the console in hex
 exitapp      .eq     $ff1f          ; ends the app / returns to the Apple 1 monitor
 
 addr_flags   .eq     $2000          ; 8192 bytes starting at offset 8192. You need at least 16k of RAM on your Apple I
-len_flags    .eq     $2000          ; amount of RAM allocated an initialized to 1
+len_flags    .eq     $2000          ; amount of RAM allocated and initialized to 1
 size_flags   .eq     $1ffe          ; 8190 is size. sieve writes to 8191 entries. one extra byte allocated as a flags to terminate the loop
 beyond_flags .eq     addr_flags+size_flags
 
@@ -65,11 +65,11 @@ start:
     sta      memset_ptr
     lda      /addr_flags
     sta      memset_ptr+1
-    lda      #1
     lda      #len_flags
     sta      memset_len
     lda      /len_flags
     sta      memset_len+1
+    lda      #1
     jsr      memset
     ldy      #0
 
