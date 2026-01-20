@@ -56,6 +56,12 @@ void showu( val ) unsigned int val;
     int d;
     digits = 0;
 
+    if ( 0 == val )
+    {
+        show_char( '0' );
+        return;
+    }
+
     while ( val )
     {
 #if 1

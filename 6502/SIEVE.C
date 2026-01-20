@@ -53,6 +53,12 @@ void showi( val ) int val;
     int digits, x;
     digits = 0;
 
+    if ( 0 == val )
+    {
+        show_char( '0' );
+        return;
+    }
+
     if ( val < 0 )
     {
         show_char( '-' );
