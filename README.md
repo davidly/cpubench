@@ -35,7 +35,7 @@ Notes:
 * newer CPUs generally require fewer instructions that older CPUs, but the degree is highly dependent on the workload
 * the C version of E on the 68000 performs badly because the GNU C runtime has a very slow integer division function. 
 * the Z80 assembly version of E only differs from the 8080 version in that software-based integer division can use the Z80's 16-bit subtraction instruction
-* the Z80 and 8086 have instructions that loop over up to 64k memory locations, so instruction counts can be deceiving
+* the Z80 and Intel/AMD CPUs have instructions that loop over up to 64k memory locations, so instruction counts can be deceiving
 * hardware-based multiply and divide instructions can take many cycles, so instruction counts can be deceiving
 * the 68000 is generally a 32-bit CPU. It's mixed 32 and 16-bit for multiply+divide and 16-bit at the hardware level for RAM access
   * 68000: i32 / i16 = i16 & remainder i16. i16 * i16 = i32. signed and unsigned for divide
