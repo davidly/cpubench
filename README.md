@@ -11,7 +11,7 @@ Benchmarks:
 * e: calculates the value of e to 192 digits. Measures integer division, modulo, and multiplication performance along with array and loop performance
 * ttt: proves one can't win at tic-tac-toe if the opponent is competent, from 1983's War Games. Measures function call, array, loop, and conditional performance
 
-<img width="1864" height="541" alt="bench" src="https://github.com/user-attachments/assets/df081ebe-ab29-4d57-87f1-1d0191201808" />
+<img width="1656" height="512" alt="table" src="https://github.com/user-attachments/assets/7105e4e1-0896-4efa-91b7-f29da8f0dcba" />
 
 Notes:
 
